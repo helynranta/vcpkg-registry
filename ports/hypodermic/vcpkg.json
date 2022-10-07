@@ -7,6 +7,15 @@
   "dependencies": [
     "boost-signals2",
     "boost-range",
-    "boost-algorithm"
+    "boost-algorithm",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+    
   ]
 }
