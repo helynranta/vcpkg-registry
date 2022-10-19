@@ -1,11 +1,19 @@
 name: Remove package versions
 on:
   schedule:
-    - cron: '* 8 * * * '
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
 jobs:
   remove-package-versions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/delete-package-versions@v3
+    - uses: stripethree/gpr-janitor@v2.1.0
       with:
-        min-versions-to-keep: 2
+        dryRun: false
+        keep-versions: 3
+        min-age-days: 20
+        packages-to-fetch: 50
+        versions-to-fetch: 50
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
