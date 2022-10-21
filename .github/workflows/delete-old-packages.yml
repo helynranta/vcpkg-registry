@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: stripethree/gpr-janitor@v2.1.0
       with:
-        dryRun: false
+        dry-run: false
         keep-versions: 3
         min-age-days: 20
         packages-to-fetch: 50
