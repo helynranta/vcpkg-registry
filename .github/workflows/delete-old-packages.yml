@@ -8,12 +8,6 @@ jobs:
   remove-package-versions:
     runs-on: ubuntu-latest
     steps:
-    - uses: stripethree/gpr-janitor@v2.1.0
-      with:
-        dry-run: false
-        keep-versions: 3
-        min-age-days: 20
-        packages-to-fetch: 50
-        versions-to-fetch: 50
+    - uses: navikt/remove-package-versions@v0
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
