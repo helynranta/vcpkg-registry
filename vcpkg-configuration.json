@@ -8,7 +8,7 @@
       {
         "kind": "filesystem",
         "path": "vcpkg-registry",
-        "packages": [ "hypodermic", "reload-engine" ]
+        "packages": [ "hypodermic", "reload-engine", "recast" ]
       }
     ]
   }
