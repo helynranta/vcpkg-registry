@@ -1,6 +1,6 @@
 {
   "name": "reload-engine",
-  "version-string": "0.5.9",
+  "version-string": "0.5.10",
   "port-version": 0,
   "dependencies": [
     "glm",
