@@ -2,9 +2,9 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO lerppana/Hypodermic
-    REF a70c084b915be5af6ca0867a4fe04749e09ac136
-    SHA512 eef45472b305c3623b84c0264b2c3a59de52cab6dd0081eebaabfcfaabb5a7a2528dbf20d4b97ef97ed67b8b89614d0cd567cb777536797dee9df6a5dd6b4507
+    REPO ybainier/Hypodermic
+    REF a9e1b5b86aa248f8e577d454227ee9fb0c570119
+    SHA512 7bfc9db6bc8233a54f95f7f9abb020bdfeb4b5982f0927599ba392e6b0e09430d68778ca0a45612c5c2b3db492ac83a6542f9ebb4442fd9b5c0846f47386e1a0
     HEAD_REF master
 )
 
