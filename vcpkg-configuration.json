@@ -10,6 +10,7 @@
         "path": "vcpkg-registry",
         "packages": [ "hypodermic", "reload-engine", "recast" ]
       }
-    ]
+    ],
+    "overlay-ports": [ "./ports" ]
   }
   
