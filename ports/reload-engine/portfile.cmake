@@ -7,8 +7,8 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO lerppana/reload-engine
-    REF 55ce3b35e4c01f937385522b0da1c446fcc31962
-    SHA512 6d052efb78661d7627b6f5f3e76fcb9d7f60ff5896a5e1ce6a6ac8362eaf2afc72431f513a53fc10353170e90d45f7ff563a6ed3fdda6fb6ec47efb8aed502bd
+    REF 546aad614c638b5561f7bccd03181bc75849a031
+    SHA512 c20d1d6e1dab661e167aad899f3d96b6978bbebeaa3f086e9ae2dd16faa3c4fb08343d72b902d50ff28b9586a2fd7f8bf75c7e67f00c6136f530321fb74e1182
     HEAD_REF master
     AUTHORIZATION_TOKEN $ENV{GITHUB_AUTHORIZATION_TOKEN}
 )
@@ -51,6 +51,7 @@ vcpkg_copy_tools(TOOL_NAMES
 
 file(RENAME "${CURRENT_PACKAGES_DIR}/bin/asset0.data" "${CURRENT_PACKAGES_DIR}/tools/engine/asset0.data")
 file(RENAME "${CURRENT_PACKAGES_DIR}/bin/gltf2_export.py" "${CURRENT_PACKAGES_DIR}/tools/engine/gltf2_export.py")
+file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
 
 vcpkg_add_to_path("${CURRENT_PACKAGES_DIR}/share/engine")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
