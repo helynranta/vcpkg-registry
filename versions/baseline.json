@@ -9,8 +9,8 @@
 			"port-version": 7
 		},
 		"reload-engine": {
-			"baseline": "0.6.0",
-			"port-version": 1
+			"baseline": "0.6.1",
+			"port-version": 0
 		}
 	}
 }
