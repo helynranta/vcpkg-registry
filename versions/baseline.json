@@ -1,5 +1,9 @@
 {
 	"default": {
+		"imgui-node-editor": {
+			"baseline": "2022-08-27",
+			"port-version": 0
+		},
 		"hypodermic": {
 			"baseline": "2.5.2",
 			"port-version": 7

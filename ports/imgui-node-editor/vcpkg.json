@@ -1,0 +1,16 @@
+{
+    "name": "imgui-node-editor",
+    "version-string": "2022-08-27",
+    "port-version": 0,
+    "dependencies": [
+        "imgui",
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
+            "host": true
+        }
+    ]
+}
