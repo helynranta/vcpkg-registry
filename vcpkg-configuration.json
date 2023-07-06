@@ -8,7 +8,7 @@
       {
         "kind": "filesystem",
         "path": "vcpkg-registry",
-        "packages": [ "hypodermic", "reload-engine", "recast" ]
+        "packages": [ "hypodermic", "reload-engine", "recast", "imgui-node-editor" ]
       }
     ],
     "overlay-ports": [ "./ports" ]

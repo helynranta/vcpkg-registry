@@ -56,7 +56,8 @@
       "dependencies": [
         "imguizmo",
         "tinygltf",
-        "assimp"
+        "assimp",
+        "imgui-node-editor"
       ]
     },
     "tests": {
