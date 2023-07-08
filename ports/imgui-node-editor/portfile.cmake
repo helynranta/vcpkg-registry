@@ -3,8 +3,8 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO thedmd/imgui-node-editor
-    REF 99ec923a39062f556ec7676fb9ba6d302d109f76
-    SHA512 aa978e47f058837be118851dd80264354047d7c34d463a4dbae62bf3660a78cd7a2216aa2a8e1d1a6597885473387bb9b21ea75cdd27805f782390d8deceb709
+    REF 190757edab5acf419375e0798d675feeb6bc0f89
+    SHA512 0722fe7f5c8f9f71651f91ef0b11fa1d54ec371311142ac0243e3ba56ee17e36f45b9b36c74d46520c9b19aff3a9415405d1ea4bb709fe4f53fb24ca269e5d8a
     HEAD_REF develop
 )
 
@@ -14,7 +14,7 @@ vcpkg_cmake_install()
 vcpkg_copy_pdbs()
 vcpkg_cmake_config_fixup()
 
-file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug)
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug")
 
 # Put the license file where vcpkg expects it
 file(COPY ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/imgui-node-editor/)
