@@ -1,7 +1,7 @@
 {
     "name": "imgui-node-editor",
     "version-string": "2022-08-27",
-    "port-version": 1,
+    "port-version": 3,
     "dependencies": [
         "imgui",
         {

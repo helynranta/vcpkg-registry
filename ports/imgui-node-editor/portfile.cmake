@@ -2,9 +2,9 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO thedmd/imgui-node-editor
-    REF 190757edab5acf419375e0798d675feeb6bc0f89
-    SHA512 0722fe7f5c8f9f71651f91ef0b11fa1d54ec371311142ac0243e3ba56ee17e36f45b9b36c74d46520c9b19aff3a9415405d1ea4bb709fe4f53fb24ca269e5d8a
+    REPO helynranta/imgui-node-editor
+    REF 466436793d7ec69533790d18ae5334c336cf6b25
+    SHA512 ea0e2bdbcc4caf17549628c7d5c49e865e11f77d6672086b3fcace1b7f29a52c3209daefc81e93357477d2bf6f1823733da60b57e47ec39e6a8a8b8887c129ee
     HEAD_REF develop
 )
 

@@ -13,26 +13,29 @@ target_include_directories(
     ${PROJECT_NAME}
     INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<INSTALL_INTERFACE:include>
+        $<INSTALL_INTERFACE:include/imgui-node-editor>
 )
 
-set (SOURCES
+set (SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/crude_json.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_api.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor.cpp
+)
+
+set(INCLUDE_FILES
+
     ${CMAKE_CURRENT_SOURCE_DIR}/crude_json.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_bezier_math.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_bezier_math.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_extra_math.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_extra_math.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_api.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_internal.h
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_internal.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/misc/imgui_node_editor.natvis
 )
 
 install(
@@ -43,7 +46,8 @@ install(
     RUNTIME DESTINATION bin
 )
 
-install(FILES ${SOURCES} DESTINATION include)
+install(FILES ${INCLUDE_FILES} DESTINATION include)
+install(FILES ${SOURCE_FILES} DESTINATION include/imgui-node-editor.src)
 
 install(
     EXPORT ${PROJECT_NAME}_target
