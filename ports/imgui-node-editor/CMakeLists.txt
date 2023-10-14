@@ -1,57 +1,60 @@
 cmake_minimum_required(VERSION 3.8)
+project(imgui-node-editor)
 
-project(imgui-node-editor CXX)
+set(CMAKE_CXX_STANDARD 14)
 
-set(CMAKE_DEBUG_POSTFIX d)
-include(CMakeFindDependencyMacro)
-find_dependency(imgui CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
+get_target_property(IMGUI_INCLUDE_DIRS imgui::imgui
+    INTERFACE_INCLUDE_DIRECTORIES
+)
 
-add_library(${PROJECT_NAME} INTERFACE)
-add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(${PROJECT_NAME} "")
 
 target_include_directories(
+	${PROJECT_NAME}
+	PUBLIC
+	   	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+		$<INSTALL_INTERFACE:include>
+	PRIVATE
+		${IMGUI_INCLUDE_DIRS}
+)
+
+target_sources(
     ${PROJECT_NAME}
-    INTERFACE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<INSTALL_INTERFACE:include/imgui-node-editor>
-)
-
-set (SOURCE_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/crude_json.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_api.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor.cpp
-)
-
-set(INCLUDE_FILES
-
-    ${CMAKE_CURRENT_SOURCE_DIR}/crude_json.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_bezier_math.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_bezier_math.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_canvas.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_extra_math.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_extra_math.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_internal.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor_internal.inl
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui_node_editor.h
+    PRIVATE
+        crude_json.cpp
+        imgui_canvas.cpp
+        imgui_node_editor.cpp
+        imgui_node_editor_api.cpp
 )
 
 install(
     TARGETS ${PROJECT_NAME}
-    EXPORT ${PROJECT_NAME}_target
+    EXPORT unofficial-${PROJECT_NAME}-target
     ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin
 )
 
-install(FILES ${INCLUDE_FILES} DESTINATION include)
-install(FILES ${SOURCE_FILES} DESTINATION include/imgui-node-editor.src)
+if (NOT IMGUI_NODE_EDITOR_SKIP_HEADERS)
+    install(
+        FILES
+            crude_json.h
+            imgui_bezier_math.h
+            imgui_bezier_math.inl
+            imgui_canvas.h
+            imgui_extra_math.h
+            imgui_extra_math.inl
+            imgui_node_editor.h
+            imgui_node_editor_internal.h
+            imgui_node_editor_internal.inl
+        DESTINATION include/${PROJECT_NAME}
+    )
+endif()
 
 install(
-    EXPORT ${PROJECT_NAME}_target
-    NAMESPACE ${PROJECT_NAME}::
-    FILE ${PROJECT_NAME}-targets.cmake
-    DESTINATION share/${PROJECT_NAME}
+    EXPORT unofficial-${PROJECT_NAME}-target
+    NAMESPACE unofficial::${PROJECT_NAME}::
+    FILE unofficial-${PROJECT_NAME}-config.cmake
+    DESTINATION share/unofficial-${PROJECT_NAME}
 )
