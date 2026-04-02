@@ -5,7 +5,7 @@
 		},
 		"hypodermic": {
 			"baseline": "2.5.2",
-			"port-version": 7
+			"port-version": 8
 		},
 		"recast": {
 			"baseline": "1.5.1",

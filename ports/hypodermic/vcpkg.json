@@ -1,8 +1,8 @@
 {
   "name": "hypodermic",
   "version-string": "2.5.2",
-  "port-version": 7,
-  "homepage": "https://github.com/lerppana/Hypodermic",
+  "port-version": 8,
+  "homepage": "https://github.com/helynranta/Hypodermic",
   "description": "Hypodermic is a non-intrusive header only IoC container for C++.",
   "dependencies": [
     "boost-signals2",
